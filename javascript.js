@@ -1,67 +1,96 @@
 let choices = ["rock", "paper", "scissors"];
 
+//get computer choice
 function getComputerChoice(choices) {
   let choice = Math.floor(Math.random() * choices.length);
   return choices[choice];
 }
 
-function getHumanChoice(choices) {
-  let humanChoose = prompt("What do you choose?", "");
-
-  if (humanChoose == "rock") {
-    return "rock";
-  } else if (humanChoose == "paper") {
-    return "paper";
-  } else {
-    return "scissors";
-  }
-}
-
+//play 1 round and return the winner of the round
 function playRound(humanChoice, computerChoice) {
-  humanChoice = humanChoice.toLowerCase();
+  const displayResult = document.createElement("div");
+  displayResult.textContent = "";
+  document.body.appendChild(displayResult);
 
   if (humanChoice == computerChoice) {
-    console.log("It's a tie!");
+    displayResult.textContent = "It's a tie!";
     return [0, 0];
   } else if (
     (humanChoice == "rock" && computerChoice == "paper") ||
     (humanChoice == "paper" && computerChoice == "scissors") ||
     (humanChoice == "scissors" && computerChoice == "rock")
   ) {
-    console.log(`You lose...${computerChoice} beats ${humanChoice}!`);
+    displayResult.textContent = `You lose...${computerChoice} beats ${humanChoice}!`;
     return [0, 1];
   } else {
-    console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+    displayResult.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
     return [1, 0];
   }
 }
 
-function playGame() {
-  let humanScore = 0;
-  let computerScore = 0;
-
-  for (let round = 0; round < 5; round++) {
-    const humanSelection = getHumanChoice(choices);
-    const computerSelection = getComputerChoice(choices);
-
-    let [humanRoundScore, computerRoundScore] = playRound(
-      humanSelection,
-      computerSelection,
-    );
-    humanScore += humanRoundScore;
-    computerScore += computerRoundScore;
-  }
+//Call the final winner
+function displayWinner(humanScore, computerScore) {
+  const displayScore = document.createElement("div");
+  displayScore.textContent = "";
+  document.body.appendChild(displayScore);
 
   if (humanScore == computerScore) {
-    console.log(`Human: ${humanScore} - Computer: ${computerScore}`);
+    displayScore.textContent = `Human: ${humanScore} - Computer: ${computerScore}`;
     return "It's a draw... Let's do another game!";
   } else if (humanScore < computerScore) {
-    console.log(`Human: ${humanScore} - Computer: ${computerScore}`);
+    displayScore.textContent = `Human: ${humanScore} - Computer: ${computerScore}`;
     return "You lose... maybe next time ?";
   } else {
-    console.log(`Human: ${humanScore} - Computer: ${computerScore}`);
+    displayScore.textContent = `Human: ${humanScore} - Computer: ${computerScore}`;
     return "You win! What a champ!";
   }
 }
 
-console.log(playGame());
+// play the round 5x and increment the score
+function playGame() {
+  const btnRock = document.createElement("button");
+  const btnPaper = document.createElement("button");
+  const btnScissors = document.createElement("button");
+  document.body.appendChild(btnRock);
+  document.body.appendChild(btnPaper);
+  document.body.appendChild(btnScissors);
+
+  round = 0;
+  humanScore = 0;
+  computerScore = 0;
+
+  btnRock.addEventListener("click", () => {
+    let [humanRoundScore, computerRoundScore] = playRound(
+      "rock",
+      getComputerChoice(choices),
+    );
+    humanScore += humanRoundScore;
+    computerScore += computerRoundScore;
+    round += 1;
+    if (round == 5) return displayWinner(humanScore, computerScore);
+  });
+
+  btnPaper.addEventListener("click", () => {
+    let [humanRoundScore, computerRoundScore] = playRound(
+      "paper",
+      getComputerChoice(choices),
+    );
+    humanScore += humanRoundScore;
+    computerScore += computerRoundScore;
+    round += 1;
+    if (round == 5) return displayWinner(humanScore, computerScore);
+  });
+
+  btnScissors.addEventListener("click", () => {
+    let [humanRoundScore, computerRoundScore] = playRound(
+      "scissors",
+      getComputerChoice(choices),
+    );
+    humanScore += humanRoundScore;
+    computerScore += computerRoundScore;
+    round += 1;
+    if (round == 5) return displayWinner(humanScore, computerScore);
+  });
+}
+
+playGame();
