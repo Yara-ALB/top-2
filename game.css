@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 24px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background:
+        radial-gradient(circle at 0% 0%, hsl(279, 26%, 90%), transparent 30%),
+        radial-gradient(
+            circle at 100% 100%,
+            hsl(279, 26%, 90%),
+            transparent 30%
+        ),
+        radial-gradient(circle at 100% 0%, hsl(279, 26%, 90%), transparent 30%),
+        radial-gradient(circle at 0% 100%, hsl(279, 26%, 90%), transparent 30%),
+        hsl(279, 26%, 80%);
+    font-family: "Times New Roman", Times, serif;
+}
+
+.screen {
+    display: none;
+    height: 100vh;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 50px;
+    color: hsl(279, 26%, 15%);
+    margin: 0 0 16px;
+}
+
+img {
+    background-color: hsl(279, 26%, 90%);
+    background-size: cover;
+    border: 1px solid hsl(279, 26%, 40%);
+    border-radius: 25px;
+    width: 200px;
+    height: 200px;
+}
+
+span {
+    text-align: center;
+    width: 150px;
+}
+
+/* ----------- Buttons --------------------------- */
+
+button {
+    background: hsl(279, 26%, 55%);
+    color: hsl(279, 26%, 90%);
+    border: none;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.buttons {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* ----------- Title section --------------------------- */
+#titleText {
+    font-size: 1.25rem;
+    color: hsl(279, 26%, 25%);
+    margin: 0 auto 16px;
+}
+
+/* ----------- Rules section --------------------------- */
+#rules {
+    gap: 5px;
+}
+
+#rulesText {
+    font-size: 1.25rem;
+    color: hsl(279, 26%, 25%);
+    text-align: start;
+    background-color: hsl(279, 26%, 90%);
+    border: 1px solid hsl(279, 26%, 25%);
+    border-radius: 25px;
+    padding: 8px 16px;
+}
+
+/* ----------- Game section --------------------------- */
+#game {
+    width: 600px;
+}
+
+.images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#gamers {
+    width: 500px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    color: hsl(279, 26%, 25%);
+}
+
+#spanComp {
+    margin-right: 5px;
+}
+
+#displayRoundScore {
+    font-size: 1.5rem;
+    color: hsl(279, 26%, 25%);
+}
+
+#displayResult {
+    font-size: 1.25rem;
+    color: hsl(279, 26%, 25%);
+    margin-top: 80px;
+}
+
+/* ----------- Winner section --------------------------- */
+#winnerText {
+    font-size: 40px;
+    font-weight: bold;
+    color: hsl(279, 26%, 15%);
+    margin: 0px;
+}
+
+#displayScore {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 5px auto 20px;
+    color: hsl(279, 26%, 40%);
+}
+
+#displayText {
+    font-size: 1.5rem;
+    margin: 35px auto 0px;
+    color: hsl(279, 26%, 25%);
+}

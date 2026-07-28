@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-IA-Compatible" content="IE-Edge" />
+        <meta
+            name="viewport"
+            content="width= device-width, initial-scale= 1.0"
+        />
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="game.css" />
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+        <script src="game.js" defer></script>
+    </head>
+
+    <body>
+        <div id="title" class="screen active">
+            <h1>Rock Paper Scissors</h1>
+            <p id="titleText">First to win 5 rounds takes the match.
+                Can you beat the computer ?
+                </p>
+
+
+            <div class="buttons">
+                <button id="playBtn">Play</button>
+                <button id="rulesBtn">Rules</button>
+            </div>
+        </div>
+
+        <div id="rules" class="screen">
+            <h1>How to play</h1>
+
+            <div id="rulesText">
+            <p>
+                The rules are simple :
+                <ul>
+                    <li>Rock beats Scissors</li>
+                    <li>Scissors beats Paper</li>
+                    <li>Paper beats Rock</li>
+                </ul>
+                If you match the computer choice, it's a tie
+                and the round is replayed.
+                <br>The first that wins 5 rounds wins the game.
+            </p>
+            </div>
+
+            <div class="buttons">
+                <button id="startBtn">Start</button>
+                <button id="backRulesBtn">Back</button>
+            </div>
+        </div>
+
+        <div id="game" class="screen">
+            <div id="gamers">
+                <span>You</span>
+                <p id="displayRoundScore"></p>
+                <span id="spanComp">Computer</span>
+            </div>
+
+
+            <div class="images">
+                <img class= "slot" id="humanSlot" src="images/placeholder.png"/>
+                <p> VS </p>
+                <img class= "slot" id="computerSlot" src="images/placeholder.png"/>
+            </div>
+
+            <p id="displayResult"></p>
+
+            <div class="buttons">
+                <button id="btnRock">Rock</button>
+                <button id="btnPaper">Paper</button>
+                <button id="btnScissors">Scissors</button>
+            </div>
+
+            <div class="buttons">
+                <button id="backGameBtn">Back to Mainpage</button>
+            </div>
+        </div>
+
+        <div id="winner" class="screen">
+            <p id="winnerText"></p>
+            <p id="displayScore"></p>
+            <p id="displayText"></p>
+
+            <div class="buttons">
+                <button id="playAgainBtn">Play again</button>
+                <button id="backTitleBtn">Back to Mainpage</button>
+            </div>
+        </div>
+    </body>
+</html>
